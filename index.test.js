@@ -144,12 +144,12 @@ describe('[Exercise 6] Car', () => {
   })
   test('[17] refueling allows to keep driving', () => {
     const result = focus.drive(600)
-    console.log(result)
-    focus.refuel(21)
-    expect(focus.milesLeft).toEqual(600)
+    focus.refuel(20)
+    focus.drive(600)
+    expect(focus.milesLeft).toEqual(0)
   })
   test('[18] adding fuel to a full tank has no effect', () => {
-    focus.refuel(21)
+    focus.refuel(100)
     expect(focus.milesLeft).toEqual(600)
   })
 

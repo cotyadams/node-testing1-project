@@ -186,7 +186,7 @@ class Car {
       this.milesLeft = this.mpg * this.tank
       return this.milesLeft
     }
-    if (this.milesLeft === this.mpg * this.tank) return 'already full'
+    else if (this.milesLeft === this.mpg * this.tank) return 'already full'
     else {
       this.milesLeft += (this.mpg * gallons)
     }
