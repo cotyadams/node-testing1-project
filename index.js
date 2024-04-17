@@ -155,18 +155,23 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
-    this.milesLeft = this.tank * this.mpg
-    if (this.milesLeft <= distance) {
-      this.odometer += this.milesLeft
-      this.milesLeft = 0;
-      return this.odometer
-    }
-    if (this.milesLeft === 0) {
-      return this.odometer
-    }
-    this.milesLeft -= distance
+    // this.milesLeft = this.tank * this.mpg
+    // if (this.milesLeft <= distance) {
+    //   this.odometer += this.milesLeft
+    //   this.milesLeft = 0;
+    //   return this.odometer
+    // }
+    // if (this.milesLeft === 0) {
+    //   return this.odometer
+    // }
+    // this.milesLeft -= distance
 
-    return this.odometer += distance
+    // return this.odometer += distance
+    const milesLeft = this.tank * this.mpg
+    const dist = Math.min(distance, milesLeft);
+    this.odometer += dist
+    this.tank -= dist / this.mpg
+    return this.odometer;
   }
 
   /**
