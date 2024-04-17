@@ -138,6 +138,7 @@ class Car {
     this.tank = tankSize // car initiazes full of gas
     this.mpg = mpg
     // ✨ initialize whatever other properties are needed
+    this.tankSize = tankSize
   }
 
   /**
@@ -187,14 +188,17 @@ class Car {
    */
   refuel(gallons) {
     // ✨ implement
-    if (gallons > this.tank - (this.milesLeft / this.mpg)) {
-      this.milesLeft = this.mpg * this.tank
-      return this.milesLeft
-    }
-    else if (this.milesLeft === this.mpg * this.tank) return 'already full'
-    else {
-      this.milesLeft += (this.mpg * gallons)
-    }
+    // if (gallons > this.tank - (this.milesLeft / this.mpg)) {
+      // this.milesLeft = this.mpg * this.tank
+      // return this.milesLeft
+    // }
+    // else if (this.milesLeft === this.mpg * this.tank) return 'already full'
+    // else {
+    //   this.milesLeft += (this.mpg * gallons)
+    // }
+    const toFill = Math.min(gallons, this.tankSize - this.tank)
+    this.tank += toFill
+    return this.tank * this.mpg
   }
 }
 
